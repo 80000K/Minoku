@@ -1,6 +1,10 @@
 <template>
-  <div class="box" v-bind:style="{ background: colors[value] }">
-    <span> {{ value }} </span>
+  <div
+    class="box"
+    v-bind:style="{ background: colors[value] }"
+    v-on:click="handleClick"
+  >
+    <span> {{ value !== 0 ? value : "" }} </span>
   </div>
 </template>
 
@@ -9,6 +13,7 @@ export default {
   props: ["value"],
   data: () => {
     return {
+      locked: false,
       colors: [
         "#fff",
         "#F5B7B1",
@@ -22,6 +27,17 @@ export default {
         "#1F618D"
       ]
     };
+  },
+  mounted() {
+    this.locked = this.value !== 0;
+  },
+  methods: {
+    handleClick() {
+      if (!this.locked) {
+        this.value++;
+        if (this.value > 9) this.value = 1;
+      }
+    }
   }
 };
 </script>
@@ -33,8 +49,13 @@ export default {
   height: 50px;
   text-align: center;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: center;
   border: 1px solid #999;
+  span {
+    display: block;
+    // align-self: center;
+    // color: #fff;
+  }
 }
 </style>
