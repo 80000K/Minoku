@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <Grid v-for="index in 9" :key="index" :board="puzzle[index - 1]" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import Grid from "./components/Grid.vue";
+// eslint-disable-next-line no-unused-vars
+const { matrix, blink, checkMatrix } = require("sudoku-matrix");
 
 export default {
   name: "app",
+  data: () => {
+    return {
+      puzzle: blink(20)
+    };
+  },
   components: {
-    HelloWorld
+    Grid
   }
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-around;
+  width: 475px;
 }
 </style>

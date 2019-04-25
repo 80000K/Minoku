@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "core-js": "^2.6.5",
+    "js-sudoku-generator": "0.0.3",
+    "sudoku-matrix": "^1.0.5",
     "vue": "^2.6.10"
   },
   "devDependencies": {
