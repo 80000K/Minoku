@@ -16,7 +16,7 @@ export default {
       locked: false,
       colors: [
         "#fff",
-        "#F5B7B1",
+        "red",
         "#C39BD3",
         "#85C1E9",
         "#A3E4D7",
