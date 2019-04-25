@@ -1,6 +1,6 @@
 <template>
   <div class="box" v-bind:style="{ background: colors[value] }">
-    {{ value }}
+    <span> {{ value }} </span>
   </div>
 </template>
 
@@ -33,6 +33,8 @@ export default {
   height: 50px;
   text-align: center;
   display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   border: 1px solid #999;
 }
 </style>
